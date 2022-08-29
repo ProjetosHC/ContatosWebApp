@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="https://www.thymeleaf.org/" th:replace="user/base::Layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novo Contato</title>
+</head>
+<body>
+    <section>
+        <div class="my-card mt-2 col-md-8 offset-md-2">
+            <div class="container text-center mt-3">
+                <img src="" th:src="@{/img/add-user.png}" alt="" style="width: 80px;">
+            </div>
+            <div class="card-body">
+                <h1 class="text-center">Adicionar Contato</h1>
+                <div class="container-fluid mt-5">
+                    <div class="row">
+                        <div class="col-md-8 offset-md-2">
+                            <form th:action="@{/usuario/salvar-contato}" action="#" th:object="${contato}" enctype="multipart/form-data" method="post" class="mt-2">
+                                <div class="input-group mt-3">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <i class="fa-solid fa-user-plus fa-2x"></i>
+                                        </div>
+                                    </div>
+                                    <input type="text" id="cnome" name="nome" placeholder="Digite o nome do contato" class="form-control ms-2" required th:value="${contato.nome}" />
+                                </div>
+                                <div class="input-group mt-3">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <i class="fa-solid fa-mobile-screen-button fa-2x"></i>
+                                        </div>
+                                    </div>
+                                    <input type="number" id="ctel" name="telefone" placeholder="Digite o telefone do contato" class="form-control ms-4" required />
+                                </div>
+                                <div class="input-group mt-3">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <i class="fa-solid fa-at fa-2x"></i>
+                                        </div>
+                                    </div>
+                                    <input type="email" id="cemail" name="email" placeholder="Digite o e-mail do contato" class="form-control ms-3" required />
+                                </div>
+                                <div class="form-group mt-3">
+                                    <textarea name="sobre" id="mytextarea" placeholder="Digite uma pequena descrição sobre o contato" class="form-control" rows="8" style="resize: none;"></textarea>
+                                </div>
+                                <div class="custom-file mt-3">
+                                    <input type="file" name="cpimagem" id="cimagem">
+                                </div>
+                                <div class="container text-center mt-5">
+                                    <button class="btn bt-prim text-white">Salvar Contato</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+        <script>
+            tinymce.init({
+            selector: '#mytextarea'
+            });
+        </script> -->
+    </section>
+</body>
+</html>

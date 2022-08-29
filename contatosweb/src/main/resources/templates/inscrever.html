@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="https://www.thymeleaf.org/" th:replace="base::Layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+</head>
+<body>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <div class="my-card mt-5">
+                        <div th:if="${session.mensagem}" th:classappend="${session.mensagem.tipo}" class="alert" role="alert">
+                            <p class="text-center" th:text="${session.mensagem.conteudo}"></p>
+                        </div>
+                        <th:block th:text="${#session.removeAttribute('mensagem')}"></th:block>
+                        <div class="container text-center">
+                            <img src="" th:src="@{/img/register.png}" alt="" style="width: 80px;">
+                        </div>
+                        <h1 class="text-center mt-2">Inscreva-se Aqui</h1>
+                        <form novalidate action="" th:action="@{/fzr_registro}" method="post" th:object="${usuario}">
+                            <div class="form-group mt-5">
+                                <label for="lbl-nome">Nome</label>
+                                <input name="nome" type="text" class="form-control " th:classappend="${#fields.hasErrors('nome') ? 'is-invalid':''}" id="lbl-nome" placeholder="Digite seu nome..." required th:value="${usuario.nome}" />
+                                <div class="invalid-feedback" th:each="e : ${#fields.errors('nome')}" th:text="${e}"></div>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="lbl-email">E-mail</label>
+                                <input name="email" type="email" class="form-control " th:classappend="${#fields.hasErrors('email') ? 'is-invalid':''}" id="lbl-email" aria-describedby="emailHelp" placeholder="Digite seu e-mail..." required th:value="${usuario.email}" />
+                                <div class="invalid-feedback" th:each="e : ${#fields.errors('email')}" th:text="${e}"></div>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="lbl-senha">Senha</label>
+                                <input name="senha" type="password" class="form-control " th:classappend="${#fields.hasErrors('senha') ? 'is-invalid':''}" id="lbl-senha" placeholder="Digite sua senha..." required th:value="${usuario.senha}" />
+                                <div class="invalid-feedback" th:each="e : ${#fields.errors('senha')}" th:text="${e}"></div>
+                            </div>
+                            <div class="form-group form-check mt-4">
+                                <input name="termos" type="checkbox" id="termos" class="form-check-input" />
+                                <label for="termos">Aceitar termos de uso.</label>
+                            </div>
+                            <div class="container text-center mt-3">
+                                <button type="submit" class="btn bt-prim text-white">Inscrever</button>
+                                <button type="reset" class="btn bt-second text-white">Limpar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

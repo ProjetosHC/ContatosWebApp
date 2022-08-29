@@ -1,0 +1,96 @@
+body {
+    background: #2d2b2a!important;
+}
+
+.bg-primary {
+    background: #0e0b16!important;
+}
+
+.banner {
+    width: 100%;
+    height: 93vh;
+    background: linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.8)), url("../img/banner.jpg") no-repeat;
+    background-size: cover;
+    color: #ffffff;
+}
+
+.bt-prim {
+    background: #4717f6;
+}
+
+.bt-second {
+    background: #a239ca;
+}
+
+.my-card {
+    padding: 20px;
+    background: #161616;
+    color: white;
+}
+
+.gradient-custom {
+    /* fallback for old browsers */
+    background: rgb(22, 22, 22);
+    
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, rgba(22, 22, 22, 1), rgba(22, 22, 22, 1));
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, rgba(22, 22, 22, 1), rgba(22, 22, 22, 1));
+    border-radius: 10px;
+    }
+
+@media only screen and (max-width: 600px) {
+    .sidebar {
+        display: none;
+        width: 80%!important;
+        background: #0e0b16;
+        height: 100vh;
+        position: fixed;
+        padding-top: 20px;
+    }
+    .content {
+        margin-left: 0%!important;
+    }
+}
+
+.sidebar {
+    width: 18%;
+    background: #0e0b16;
+    height: 100%;
+    position: fixed;
+    padding-top: 45px;
+}
+
+.sidebar .crossBtn {
+    position: absolute;
+    top: 0;
+    right: 35px;
+    font-size: 36px;
+    cursor: pointer;
+    color: white;
+}
+
+.sidebar a {
+    display: block;
+    width: 100%;
+    padding: 10px 25px;
+    text-decoration: none;
+    color: white;
+}
+
+.sidebar a:hover {
+    background: #2d2b2a;
+}
+
+.content {
+    margin-left: 20%;
+}
+
+.cperfil {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid white;
+}
