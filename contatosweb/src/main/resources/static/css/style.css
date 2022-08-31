@@ -30,7 +30,7 @@ body {
 
 .gradient-custom {
     /* fallback for old browsers */
-    background: rgb(22, 22, 22);
+    background: #161616;
     
     /* Chrome 10-25, Safari 5.1-6 */
     background: -webkit-linear-gradient(to right, rgba(22, 22, 22, 1), rgba(22, 22, 22, 1));
@@ -92,5 +92,5 @@ body {
     height: 30px;
     object-fit: cover;
     border-radius: 50%;
-    border: 1px solid white;
+    border: 2px solid white;
 }

@@ -1,5 +1,7 @@
 package com.npi.contatosweb.repository;
 
+import java.util.Optional;
+
 // import java.util.List;
 
 import org.springframework.data.domain.Page;
@@ -16,4 +18,6 @@ public interface ContatoRepositorio extends JpaRepository<Contato, Long> {
     
     @Query("from Contato as c where c.usuario.id = :usuarioId")
     public Page<Contato> findContactsByUser(@Param("usuarioId") Long usuarioId, Pageable pageable);
+
+    Optional<Contato> findByTelefone(String telefone);
 }

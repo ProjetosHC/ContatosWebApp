@@ -1,5 +1,8 @@
 package com.npi.contatosweb.controller;
 
+import java.security.Principal;
+import java.util.Optional;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -46,10 +49,16 @@ public class HomeController {
         return "inscrever";
     }
 
+
     @RequestMapping(value = "/fzr_registro", method = RequestMethod.POST)
-    public String registrarUsuario(@Valid @ModelAttribute("usuario") Usuario usuario, BindingResult result, @RequestParam(value = "termos", defaultValue = "false") boolean termos, Model model, HttpSession session) {
+    public String registrarUsuario(@Valid @ModelAttribute("usuario") Usuario usuario, BindingResult result, @RequestParam(value = "termos", defaultValue = "false") boolean termos, Model model, HttpSession session, Principal principal) {
 
         try {
+            Optional<Usuario> uemail = this.uRepo.findByEmail(usuario.getEmail());
+            if(uemail.isPresent()) {
+                throw new Exception("E-mail já utilizado");
+            }
+
             if(!termos) {
                 // System.out.println("Você não aceitou os termos de uso!");
                 throw new Exception("Você não aceitou os termos de uso!");
@@ -86,4 +95,5 @@ public class HomeController {
         model.addAttribute("title", "Entrar - Contatos WebApp");
         return "login";
     }
+
 }

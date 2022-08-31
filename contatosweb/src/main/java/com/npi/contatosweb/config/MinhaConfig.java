@@ -47,7 +47,8 @@ public class MinhaConfig {
                                     // .loginProcessingUrl("/fzr-login")
                                     .defaultSuccessUrl("/usuario/index")
                                     // .failureUrl("/login-fail")
-                                    .and().csrf().disable();
+                                    .and().csrf().disable()
+                                    .logout().logoutSuccessUrl("/entrar");
 
         return http.build();
     }

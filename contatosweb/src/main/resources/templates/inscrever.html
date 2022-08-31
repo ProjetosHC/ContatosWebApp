@@ -9,9 +9,9 @@
 <body>
     <section>
         <div class="container">
-            <div class="row">
-                <div class="col-md-6 offset-md-3">
-                    <div class="my-card mt-5">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                    <div class="my-card mt-5" style="border-radius: 1rem;">
                         <div th:if="${session.mensagem}" th:classappend="${session.mensagem.tipo}" class="alert" role="alert">
                             <p class="text-center" th:text="${session.mensagem.conteudo}"></p>
                         </div>
@@ -42,7 +42,7 @@
                             </div>
                             <div class="container text-center mt-3">
                                 <button type="submit" class="btn bt-prim text-white">Inscrever</button>
-                                <button type="reset" class="btn bt-second text-white">Limpar</button>
+                                <!-- <button type="reset" class="btn bt-second text-white">Limpar</button> -->
                             </div>
                         </form>
                     </div>

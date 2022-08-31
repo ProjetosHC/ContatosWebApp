@@ -27,6 +27,7 @@ public class Contato {
 
     @NotBlank
     @Size(min = 8, max = 12)
+    @Column(unique = true)
     private String telefone;
 
     private String imagem;
@@ -84,5 +85,10 @@ public class Contato {
     }
     public void setImagem(String imagem) {
         this.imagem = imagem;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return this.cId==((Contato)obj).getcId();
     }
 }
